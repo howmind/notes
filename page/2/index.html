@@ -29,17 +29,13 @@
 
 
 
-  <title>
-  
-
-  
-    标签 // Howmind
-  
-</title>
+  <title> Howmind </title>
 </head>
 
 <body>
-  <div class="container one-column ">
+  <div class="container one-column 
+   page-home 
+">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -109,19 +105,98 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-
   <div id="posts" class="posts-expand">
     
-    
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            暂无标签
-        </div>
-        <div class="tag-cloud-tags">
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
           
-        </div>
+          
+            
+              <a class="post-title-link" href="/2012/09/23/window-thin-pc-安装注册组件配置/">
+                Window Thin PC 安装注册组件配置
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2012-09-23
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Win/">Win</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2012/09/23/window-thin-pc-安装注册组件配置/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2012/09/23/window-thin-pc-安装注册组件配置/"></span>
+            </a>
+          </span>
+          
+        
       </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p><strong><br><span style="color: #0000ff;">10/5更新状况</span></strong>-今天突然激活过期了，桌面显示黑屏，提示今天必须注册。<br>比较奇怪，之前安装时候已经用证书注册过了，用slmgr.vbs -dli和-dlv 发现出现两个系统信息版本VOLUME MAK 和 VOLUME BA。VOLUME MAK 显示过期了。<br>想到很可能是之前在装了一些embedded的系统组件(.Net Framework)造成的吧。<br>网上找了下，发现一个写好的批处理工具(仍然使用了之前的证书，但是多使用了一个文件和系列号)重新注册了下，重启就Ok了。</p>
+<hr>
+<p>Windows 7 瘦身版Windows Thin PC（简称WinTPC），WinTPC是一个面向企业用户的产品，主要面向虚拟桌面基础架构（VDI）消费者，WinTPC由于组件的精简，消耗系统资源更少，对于普通用户，如果你的电脑配置较低，对系统功能的要求也不高，WinTPC将是一个很好的选择，特别合适仅需要虚拟机安装个讯雷会员下载什么的。WinTPC下载（目前只有英文版,但可以完美汉化）及有效激活方法和一些必要组件的安装：</p>
+<p><strong>下载安装
+</strong>MNDN版下载：<br>ed2k://|file|en_windows_thin_pc_x86_697681.iso|1576980480|2D0E6A048EB3F314F556B4F0834A95E2|h=HST4XIJCM7BXSDWD6OXDBBONACMB7I76|/<br>评估版（90天免费使用）下载：<a href="http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso" target="_blank" rel="external">http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso</a><br>有效激活方法，使用证书文件激活:<br>1,下载证书文件，给个地址但是可能已经无效(<a href="http://page3.yunfile.com/file/axhmei/993a1a10/" target="_blank" rel="external">点击此处下载</a>)<br>2,将证书文件放到文件位置 C:\Windows\System32\spp\tokens\skus\Security-SPP-Component-SKU-Embedded 中<br>3,然后管理员权限运行 slmgr.vbs –rilc 即可成功激活!</p>
+<h6 id="汉化方法">汉化方法</h6><p>中文语言包下载：<a href="http://download.microsoft.com/download/8/6/1/8616D57C-1163-45FB-832A-15FA60571002/SP1/Chinese%20(Simplified" target="_blank" rel="external">http://download.microsoft.com/download/8/6/1/8616D57C-1163-45FB-832A-15FA60571002/SP1/Chinese%20(Simplified)%20Language%20Pack%20-%20Windows%20Embedded%20Standard%207%20SP1/lp.cab</a>%20Language%20Pack%20-%20Windows%20Embedded%20Standard%207%20SP1/lp.cab)<br>Windows Thin PC 简体中文包的安装方法：<br>1.下载Windows Thin PC 简体中文语言包lp.cab放到D盘的根目录<br>2.以管理员身份运行CMD命令输入：dism /online /add-package /packagepath:D:lp.cab<br>3.完成后输入：bcdedit /set {current} locale zh-cn<br>4.完成后再输入：bcdboot %WinDir% /l zh-cn<br>完成后重启计算机进入控制面板进行设置即可。</p>
+<h6 id="组件安装(以需要安装Windows_Live_Writer为例)">组件安装(以需要安装Windows Live Writer为例)</h6><p>因为WinTPC精简了很多组件，所以安装一些软件时会提示缺少一些系统组件，这时我们需要让系统再补上它们，但是千万不要什么都补，否则就直接装Win 7 标准版了，不要折腾WinTPC了<img src="http://www.doxspace.com/wp-content/uploads/2012/09/wlEmoticon-smile.png" alt="微笑">.</p>
+<p><span style="text-decoration: underline;">以Windows Live Writer为例安装.Net Framework 3.0, 3.5：<br></span>1.下载需要的组件winemb-netfx30.cab与winemb-netfx35.cab放到D盘的根目录。<br>下载Windows Embedded Standard 7 SP1 Runtime (IBW) x86 ISO ，可以到官方下载评估版本<a href="http://www.microsoft.com/download/en/details.aspx?id=11887" target="_blank" rel="external">http://www.microsoft.com/download/en/details.aspx?id=11887</a>。功能扩展包组件位于ISO的 DSPackagesFeaturePack 文件夹下, 从中可找到winemb-netfx30.cab与winemb-netfx35.cab。<br>2.以管理员身份运行CMD命令输入：dism /online /add-package /packagepath:D:<em>**</em>.cab<br>3.完成后重启计算机<br>4.可成功安装Windowns Live Writer</p>
+<p>好了，如果以后WinTPC安装什么软件或者一些功能需要时就可以通过类似方法补上了。</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
     
+  </div>
+
+  
+  <div class="pagination">
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </div>
 
 
@@ -419,6 +494,26 @@
   
 
   
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"howmind"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
 
   
 </body>
